@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../views/Home'
 
 Vue.use(VueRouter)
 
@@ -11,12 +11,29 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/create',
+    name: 'create',
+    // route level code-splitting and lazy-loadeding
+    component: () => import(/* webpackChunkName: "create" */ '../views/Edition')
+  },
+  {
+    path: '/edit/:id',
+    name: 'edit',
+    // route level code-splitting and lazy-loadeding
+    component: () =>
+      import(/* webpackChunkName: "edition" */ '../views/Edition')
+  },
+  {
+    path: '/task/:taskId',
+    name: 'task',
+    // Cast id to a number
+    props(route: any) {
+      const props = { ...route.params }
+      props.taskId = +props.taskId
+      return props
+    },
+    // route level code-splitting and lazy-loadeding
+    component: () => import(/* webpackChunkName: "task" */ '../views/Task')
   }
 ]
 
