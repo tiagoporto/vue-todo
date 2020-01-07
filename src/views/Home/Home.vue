@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>PawaTaks</h1>
+    <h1>pawaTask</h1>
     <router-link to="/create">Add a nex Task</router-link>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
