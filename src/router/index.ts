@@ -17,8 +17,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "create" */ '../views/Edition')
   },
   {
-    path: '/edit/:id',
+    path: '/edit/:taskId',
     name: 'edit',
+    // Cast id to a number
+    props(route: any) {
+      const props = { ...route.params }
+      props.taskId = +props.taskId
+      return props
+    },
     // route level code-splitting and lazy-loadeding
     component: () =>
       import(/* webpackChunkName: "edition" */ '../views/Edition')

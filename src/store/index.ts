@@ -51,6 +51,21 @@ export default new Vuex.Store({
   mutations: {
     addTask(state, task) {
       state.tasks.push(task)
+    },
+    deleteTask(state, id) {
+      state.tasks = state.tasks.filter(task => task.id !== id)
+    },
+    editTask(state, edition) {
+      state.tasks = state.tasks.map(task => {
+        if (task.id === edition.id) {
+          return {
+            ...task,
+            ...edition
+          }
+        }
+
+        return task
+      })
     }
   },
   actions: {},
@@ -60,7 +75,7 @@ export default new Vuex.Store({
       return state.tasks
     },
     getTaskById: (state, getters) => (id: number) => {
-      return getters.tasksList.find((task: any) => task.id == id)
+      return getters.tasksList.find((task: any) => task.id === id)
     }
   }
 })
