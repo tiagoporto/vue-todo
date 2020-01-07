@@ -41,7 +41,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    ...mapState({ tasks: state => state.tasks })
+    ...mapState({ tasks: (state: any) => state.tasks })
   },
   methods: {
     ...mapMutations(['deleteTask'])

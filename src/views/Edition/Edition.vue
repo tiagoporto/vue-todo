@@ -57,11 +57,11 @@ export default Vue.extend({
     ...mapGetters(['getTaskById'])
   },
   methods: {
-    handleDelete(id) {
+    handleDelete(id: Number) {
       this.deleteTask(id)
       this.$router.push({ name: 'home' })
     },
-    handleSave(e) {
+    handleSave(e: Event) {
       e.preventDefault()
 
       if (this.taskId) {
