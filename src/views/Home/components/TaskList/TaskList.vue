@@ -1,10 +1,10 @@
 <template>
   <div class="edition">
-    <ul>
+    <ul v-if="tasks.length">
       <li v-for="(task, index) in tasks" :key="index">
         {{ task.title }}
         <font-awesome-icon :icon="calendarIcon" />
-        {{ task.date }}
+        {{ formatDate(task.date) }}
         <router-link :to="`/task/${task.id}`">
           <font-awesome-icon :icon="commentIcon" />
         </router-link>
@@ -17,6 +17,11 @@
         </button>
       </li>
     </ul>
+
+    <p v-else>
+      You do not have any tasks,
+      <router-link to="/create">add a new one</router-link>
+    </p>
   </div>
 </template>
 
@@ -26,6 +31,7 @@ import { mapGetters, mapMutations, mapState } from 'vuex'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCalendarAlt, faComment } from '@fortawesome/free-regular-svg-icons'
 import { faPencilAlt, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { formatDate } from '@/utils/date'
 
 export default Vue.extend({
   name: 'TaskList',
@@ -44,6 +50,7 @@ export default Vue.extend({
     ...mapState({ tasks: (state: any) => state.tasks })
   },
   methods: {
+    formatDate,
     ...mapMutations(['deleteTask'])
   }
 })

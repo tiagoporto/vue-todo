@@ -3,26 +3,22 @@
     <h1>New Task</h1>
 
     <p>title</p>
-    <input type="text" :value="task.title" />
+    <input v-model="task.title" type="text" required />
 
     <p>Description</p>
-    <textarea name cols="30" rows="10" :value="task.description"></textarea>
+    <textarea v-model="task.description" name cols="30" rows="10"></textarea>
 
     <p>Set Due Date</p>
-    <datetime :value="task.date" />
+    <datetime v-model="task.date" required />
 
     <p>Priority</p>
-    <select :value="task.priority">
+    <select v-model="task.priority" required>
       <option value="low">Low</option>
       <option value="medium">Medium</option>
       <option value="high">High</option>
     </select>
 
-    <p>Comment</p>
-    <textarea name cols="30" rows="10"></textarea>
-
     <router-link to="/">cancel</router-link>
-    <button @click="handleDelete(task.id)">delete</button>
     <button type="submit">save</button>
   </form>
 </template>
@@ -31,7 +27,7 @@
 import Vue from 'vue'
 import { Datetime } from 'vue-datetime'
 import 'vue-datetime/dist/vue-datetime.min.css'
-import { mapGetters, mapMutations, mapState } from 'vuex'
+import { mapGetters, mapMutations, mapState, mapActions } from 'vuex'
 
 export default Vue.extend({
   name: 'Edition',
@@ -40,7 +36,7 @@ export default Vue.extend({
   },
   props: {
     taskId: {
-      type: Number,
+      type: String,
       default: undefined
     }
   },
@@ -51,27 +47,28 @@ export default Vue.extend({
           return this.getTaskById(this.taskId)
         }
 
-        return []
+        return {
+          priority: 'low',
+          date: new Date().toISOString()
+        }
       }
     }),
     ...mapGetters(['getTaskById'])
   },
   methods: {
-    handleDelete(id: Number) {
-      this.deleteTask(id)
-      this.$router.push({ name: 'home' })
-    },
     handleSave(e: Event) {
       e.preventDefault()
-
       if (this.taskId) {
-        this.editTask({ id: this.taskId, title: 'blablal' })
+        this.editTask({ id: this.taskId, ...this.task })
       } else {
-        this.addTask()
-        // this.$router.push({ name: 'edit', params: { taskId: 123 } })
+        ;(async () => {
+          const taskId = await this.addTask(this.task)
+        })()
       }
+      this.$router.push({ name: 'home' })
     },
-    ...mapMutations(['deleteTask', 'addTask', 'editTask'])
+    ...mapMutations(['deleteTask', 'editTask']),
+    ...mapActions(['addTask'])
   }
 })
 </script>

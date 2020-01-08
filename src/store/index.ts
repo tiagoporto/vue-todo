@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import uuid from 'uuid/v1'
 
 Vue.use(Vuex)
 
@@ -7,7 +8,7 @@ export default new Vuex.Store({
   state: {
     tasks: [
       {
-        id: 1,
+        id: '88aea980-31ae-11ea-a56c-15a7ed720afe',
         title: 'Task Title',
         description:
           'Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum  ',
@@ -17,17 +18,17 @@ export default new Vuex.Store({
           {
             author: 'Tiago Porto',
             date: '2020-01-05T23:25:07.551Z',
-            message: 'Comment here'
+            message: 'First'
           },
           {
             author: 'Tiago Porto2',
             date: '2020-01-05T23:25:07.551Z',
-            message: 'Comment here2'
+            message: 'Second'
           }
         ]
       },
       {
-        id: 20,
+        id: '87aea980-34ai-11ea-a76c-15a7ed720abe',
         title: 'Task Title 22222',
         description:
           'Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum  ',
@@ -37,19 +38,14 @@ export default new Vuex.Store({
           {
             author: 'Tiago Porto',
             date: '2020-01-05T23:25:07.551Z',
-            message: 'Comment here'
-          },
-          {
-            author: 'Tiago Porto2',
-            date: '2020-01-05T23:25:07.551Z',
-            message: 'Comment here2'
+            message: 'Third'
           }
         ]
       }
     ]
   },
   mutations: {
-    addTask(state, task) {
+    addNewTask(state, task) {
       state.tasks.push(task)
     },
     deleteTask(state, id) {
@@ -68,7 +64,17 @@ export default new Vuex.Store({
       })
     }
   },
-  actions: {},
+  actions: {
+    addTask({ state, commit }, task) {
+      const id = uuid()
+      commit('addNewTask', {
+        id,
+        ...task
+      })
+
+      return id
+    }
+  },
   modules: {},
   getters: {
     tasksList(state) {

@@ -19,12 +19,7 @@ const routes = [
   {
     path: '/edit/:taskId',
     name: 'edit',
-    // Cast id to a number
-    props(route: any) {
-      const props = { ...route.params }
-      props.taskId = +props.taskId
-      return props
-    },
+    props: true,
     // route level code-splitting and lazy-loadeding
     component: () =>
       import(/* webpackChunkName: "edition" */ '../views/Edition')
@@ -32,12 +27,7 @@ const routes = [
   {
     path: '/task/:taskId',
     name: 'task',
-    // Cast id to a number
-    props(route: any) {
-      const props = { ...route.params }
-      props.taskId = +props.taskId
-      return props
-    },
+    props: true,
     // route level code-splitting and lazy-loadeding
     component: () => import(/* webpackChunkName: "task" */ '../views/Task')
   }
