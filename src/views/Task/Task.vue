@@ -20,9 +20,9 @@
       </li>
 
       <li>
-        <form>
-          <input type="text" placeholder="Author" required />
-          <input type="textarea" placeholder="Write comment" required />
+        <form @submit="handleSave">
+          <input v-model="newComment.author" type="text" placeholder="Author" required />
+          <input v-model="newComment.message" type="textarea" placeholder="Write comment" required />
           <button type="submit">add comment</button>
         </form>
       </li>
@@ -32,7 +32,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations, mapState } from 'vuex'
 import { formatDate } from '@/utils/date'
 
 export default Vue.extend({
@@ -45,17 +45,24 @@ export default Vue.extend({
   },
   data() {
     return {
-      task: {}
+      newComment: {}
     }
   },
   computed: {
+    ...mapState({
+      task(state) {
+        return this.getTaskById(this.taskId)
+      }
+    }),
     ...mapGetters(['getTaskById'])
   },
-  created() {
-    this.task = this.getTaskById(this.taskId)
-  },
   methods: {
-    formatDate
+    formatDate,
+    handleSave(e: Event) {
+      e.preventDefault()
+      this.addNewComment({ id: this.taskId, comment: this.newComment })
+    },
+    ...mapMutations(['addNewComment'])
   }
 })
 </script>

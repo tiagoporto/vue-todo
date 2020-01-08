@@ -2,6 +2,7 @@
   <div class="edition">
     <ul v-if="tasks.length">
       <li v-for="(task, index) in tasks" :key="index">
+        <input type="checkbox" :checked="task.done" @click="markAsDone(task.id)" />
         {{ task.title }}
         <font-awesome-icon :icon="calendarIcon" />
         {{ formatDate(task.date) }}
@@ -51,7 +52,7 @@ export default Vue.extend({
   },
   methods: {
     formatDate,
-    ...mapMutations(['deleteTask'])
+    ...mapMutations(['deleteTask', 'markAsDone'])
   }
 })
 </script>

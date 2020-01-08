@@ -9,6 +9,7 @@ export default new Vuex.Store({
     tasks: [
       {
         id: '88aea980-31ae-11ea-a56c-15a7ed720afe',
+        done: true,
         title: 'Task Title',
         description:
           'Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum  ',
@@ -45,8 +46,38 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
+    markAsDone(state, id) {
+      state.tasks = state.tasks.map(task => {
+        if (task.id === id) {
+          return {
+            ...task,
+            done: !task.done
+          }
+        }
+
+        return task
+      })
+    },
     addNewTask(state, task) {
       state.tasks.push(task)
+    },
+    addNewComment(state, { id, comment }) {
+      state.tasks = state.tasks.map(task => {
+        if (task.id === id) {
+          return {
+            ...task,
+            comments: [
+              ...task.comments,
+              {
+                ...comment,
+                date: new Date().toISOString()
+              }
+            ]
+          }
+        }
+
+        return task
+      })
     },
     deleteTask(state, id) {
       state.tasks = state.tasks.filter(task => task.id !== id)
