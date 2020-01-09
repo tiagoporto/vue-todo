@@ -21,6 +21,7 @@
 - [ESlint](https://eslint.org)
 - [Prettier](https://prettier.io)
 - [EditorConfig](https://editorconfig.org)
+- [Autoprefixer](https://github.com/postcss/autoprefixer)
 - [Babel](https://babeljs.io)
 - [webpack](https://webpack.js.org)
 - [Vue](https://vuejs.org)
