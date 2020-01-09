@@ -1,5 +1,7 @@
 <script>
     const path = window.location.pathname;
-    localStorage.setItem('path', path.replace('/vue-todo', ''));
+    const replace = path.replace('/vue-todo/', '')
+    console.log("replace", replace);
+    localStorage.setItem('path', replace);
     window.location.href='../';
 </script>
