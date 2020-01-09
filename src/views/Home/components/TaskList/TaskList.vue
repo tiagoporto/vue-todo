@@ -27,7 +27,7 @@
             <font-awesome-icon :icon="editIcon" />
           </Button>
 
-          <Button @click="deleteTask(task.id)">
+          <Button @click="handleDelete(task.id)">
             <font-awesome-icon :icon="deleteIcon" />
           </Button>
         </span>
@@ -68,6 +68,10 @@ export default Vue.extend({
     ...mapState({ tasks: (state: any) => state.tasks })
   },
   methods: {
+    handleDelete(taskId: string) {
+      const confirmation = confirm('Remove task?')
+      confirmation && this.deleteTask(taskId)
+    },
     formatDate,
     ...mapMutations(['deleteTask', 'markAsDone'])
   }
