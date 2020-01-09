@@ -1,19 +1,20 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import uuid from 'uuid/v1'
+import { State, Priority } from './types'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+export default new Vuex.Store<State>({
   state: {
-    tasks: [
-      {
+    tasks: {
+      '88aea980-31ae-11ea-a56c-15a7ed720afe': {
         id: '88aea980-31ae-11ea-a56c-15a7ed720afe',
         done: true,
         title: 'Task Title',
         description:
           'Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum  ',
-        priority: 'high',
+        priority: Priority.High,
         date: '2020-01-05T23:25:07.551Z',
         comments: [
           {
@@ -28,12 +29,13 @@ export default new Vuex.Store({
           }
         ]
       },
-      {
+      '87aea980-34ai-11ea-a76c-15a7ed720abe': {
         id: '87aea980-34ai-11ea-a76c-15a7ed720abe',
         title: 'Task Title 22222',
+        done: false,
         description:
           'Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum  ',
-        priority: 'high',
+        priority: Priority.Low,
         date: '2020-01-05T23:25:07.551Z',
         comments: [
           {
@@ -43,56 +45,45 @@ export default new Vuex.Store({
           }
         ]
       }
-    ]
+    }
   },
   mutations: {
     markAsDone(state, id) {
-      state.tasks = state.tasks.map(task => {
-        if (task.id === id) {
-          return {
-            ...task,
-            done: !task.done
-          }
-        }
+      const task = state.tasks[id]
 
-        return task
-      })
+      state.tasks[id] = {
+        ...task,
+        done: !task.done
+      }
     },
     addNewTask(state, task) {
-      state.tasks.push(task)
+      state.tasks[task.id] = {
+        ...task,
+        comments: []
+      }
     },
     addNewComment(state, { id, comment }) {
-      state.tasks = state.tasks.map(task => {
-        if (task.id === id) {
-          return {
-            ...task,
-            comments: [
-              ...task.comments,
-              {
-                ...comment,
-                date: new Date().toISOString()
-              }
-            ]
+      const task = state.tasks[id]
+      state.tasks[id] = {
+        ...task,
+        comments: [
+          {
+            ...comment,
+            date: new Date().toISOString()
           }
-        }
-
-        return task
-      })
+        ]
+      }
     },
     deleteTask(state, id) {
-      state.tasks = state.tasks.filter(task => task.id !== id)
+      Vue.delete(state.tasks, id)
     },
     editTask(state, edition) {
-      state.tasks = state.tasks.map(task => {
-        if (task.id === edition.id) {
-          return {
-            ...task,
-            ...edition
-          }
-        }
+      const task = state.tasks[edition.id]
 
-        return task
-      })
+      state.tasks[edition.id] = {
+        ...task,
+        ...edition
+      }
     }
   },
   actions: {
@@ -112,7 +103,7 @@ export default new Vuex.Store({
       return state.tasks
     },
     getTaskById: (state, getters) => (id: number) => {
-      return getters.tasksList.find((task: any) => task.id === id)
+      return getters.tasksList[id]
     }
   }
 })

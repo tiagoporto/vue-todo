@@ -1,38 +1,53 @@
 <template>
   <form id="edit-form" @submit="handleSave">
-    <h1>New Task</h1>
+    <legend>New Task</legend>
 
-    <p>title</p>
-    <input v-model="task.title" type="text" required />
+    <p>
+      <label for="title">title</label>
+      <input v-model="task.title" type="text" name="title" required autofocus />
+    </p>
 
-    <p>Description</p>
-    <textarea v-model="task.description" name cols="30" rows="10"></textarea>
+    <p>
+      <label for="description">Description</label>
+      <textarea
+        v-model="task.description"
+        name="description"
+        cols="30"
+        rows="10"
+      ></textarea>
+    </p>
 
-    <p>Set Due Date</p>
-    <datetime v-model="task.date" required />
+    <p>
+      <label for="due-date">Set Due Date</label>
+      <Datetime v-model="task.date" name="due-date" required />
+    </p>
 
-    <p>Priority</p>
-    <select v-model="task.priority" required>
-      <option value="low">Low</option>
-      <option value="medium">Medium</option>
-      <option value="high">High</option>
-    </select>
+    <p>
+      <label for="priority">Priority</label>
+      <select v-model="task.priority" name="priority" required>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </p>
 
-    <router-link to="/">cancel</router-link>
-    <button type="submit">save</button>
+    <Button @click="$router.push({ name: 'home' })">cancel</Button>
+    <Button type="submit">save</Button>
   </form>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { Datetime } from 'vue-datetime'
+import { Button } from '@/components/Button'
 import 'vue-datetime/dist/vue-datetime.min.css'
 import { mapGetters, mapMutations, mapState, mapActions } from 'vuex'
 
 export default Vue.extend({
   name: 'Edition',
   components: {
-    datetime: Datetime
+    Datetime,
+    Button
   },
   props: {
     taskId: {
@@ -72,3 +87,5 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style scoped src="./Edition.styl" lang="stylus"></style>

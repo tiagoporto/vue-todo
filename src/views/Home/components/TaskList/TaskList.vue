@@ -1,21 +1,36 @@
 <template>
   <div class="edition">
-    <ul v-if="tasks.length">
-      <li v-for="(task, index) in tasks" :key="index">
-        <input type="checkbox" :checked="task.done" @click="markAsDone(task.id)" />
-        {{ task.title }}
-        <font-awesome-icon :icon="calendarIcon" />
-        {{ formatDate(task.date) }}
-        <router-link :to="`/task/${task.id}`">
-          <font-awesome-icon :icon="commentIcon" />
-        </router-link>
-        <router-link :to="`/edit/${task.id}`">
-          <font-awesome-icon :icon="editIcon" />
-        </router-link>
+    <ul v-if="Object.keys(tasks).length" class="tasklist">
+      <li v-for="(task, index) in tasks" :key="index" class="tasklist__item">
+        <span>
+          <input
+            type="checkbox"
+            :checked="task.done"
+            @click="markAsDone(task.id)"
+          />
+          {{ task.title }}
+        </span>
 
-        <button @click="deleteTask(task.id)">
-          <font-awesome-icon :icon="deleteIcon" />
-        </button>
+        <span>
+          <font-awesome-icon :icon="calendarIcon" />
+          {{ formatDate(task.date) }}
+
+          <Button
+            @click="$router.push({ name: 'task', params: { taskId: task.id } })"
+          >
+            <font-awesome-icon :icon="commentIcon" />
+          </Button>
+
+          <Button
+            @click="$router.push({ name: 'edit', params: { taskId: task.id } })"
+          >
+            <font-awesome-icon :icon="editIcon" />
+          </Button>
+
+          <Button @click="deleteTask(task.id)">
+            <font-awesome-icon :icon="deleteIcon" />
+          </Button>
+        </span>
       </li>
     </ul>
 
@@ -33,11 +48,13 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faCalendarAlt, faComment } from '@fortawesome/free-regular-svg-icons'
 import { faPencilAlt, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { formatDate } from '@/utils/date'
+import { Button } from '@/components/Button'
 
 export default Vue.extend({
   name: 'TaskList',
   components: {
-    FontAwesomeIcon
+    FontAwesomeIcon,
+    Button
   },
   data() {
     return {
@@ -57,5 +74,4 @@ export default Vue.extend({
 })
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped src="./TaskList.styl" lang="stylus"></style>

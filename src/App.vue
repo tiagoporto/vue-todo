@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-    <router-view />
+    <Header />
+    <Main>
+      <router-view />
+    </Main>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { Settings } from 'luxon'
+import { Header } from '@/components/Header'
+import { Main } from '@/components/Main'
 Settings.defaultLocale = 'us'
 
 export default Vue.extend({
-  name: 'App'
+  name: 'App',
+  components: { Header, Main },
   beforeCreate() {
     let path = localStorage.getItem('path')
 
@@ -18,6 +24,7 @@ export default Vue.extend({
       localStorage.removeItem('path')
       this.$router.push(path)
     }
+  }
 })
 </script>
 
