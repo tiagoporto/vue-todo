@@ -20,13 +20,13 @@
       <li>
         <form @submit="handleSave">
           <input
-            v-model="newComment.author"
+            v-model="newComment['author']"
             type="text"
             placeholder="Author"
             required="required"
           />
           <input
-            v-model="newComment.message"
+            v-model="newComment['message']"
             type="textarea"
             placeholder="Write comment"
             required="required"
@@ -73,6 +73,7 @@ export default Vue.extend({
     handleSave(e: Event) {
       e.preventDefault()
       this.addNewComment({ id: this.taskId, comment: this.newComment })
+      this.$forceUpdate()
     },
     ...mapMutations(['addNewComment'])
   }

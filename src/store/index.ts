@@ -63,16 +63,10 @@ export default new Vuex.Store<State>({
       }
     },
     addNewComment(state, { id, comment }) {
-      const task = state.tasks[id]
-      state.tasks[id] = {
-        ...task,
-        comments: [
-          {
-            ...comment,
-            date: new Date().toISOString()
-          }
-        ]
-      }
+      state.tasks[id].comments.push({
+        ...comment,
+        date: new Date().toISOString()
+      })
     },
     deleteTask(state, id) {
       Vue.delete(state.tasks, id)
