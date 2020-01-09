@@ -5,9 +5,12 @@
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test": "vue-cli-service test:unit",
+    "cover": "vue-cli-service test:unit --coverage",
+    "coveralls": "npm run cover && cat ./coverage/lcov.info | coveralls",
     "lint": "vue-cli-service lint",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist",
+    "checks": "npm run lint && npm run coveralls"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
@@ -41,6 +44,7 @@
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/eslint-config-typescript": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
+    "coveralls": "^3.0.9",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-vue": "^5.0.0",
