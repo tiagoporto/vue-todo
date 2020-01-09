@@ -9,8 +9,10 @@
     "cover": "vue-cli-service test:unit --coverage",
     "coveralls": "npm run cover && cat ./coverage/lcov.info | coveralls",
     "lint": "vue-cli-service lint",
+    "check-types": "tsc --noEmit",
+    "check-formatting": "prettier --check '{src,public}/**/*.{js,ts,vue,json}'",
     "deploy": "npm run build && gh-pages -d dist",
-    "checks": "npm run lint && npm run coveralls"
+    "checks": "npm run check-formatting && npm run lint && npm run check-types && npm run coveralls"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",

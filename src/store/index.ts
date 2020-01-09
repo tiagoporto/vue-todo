@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import uuid from 'uuid/v1'
-import { State, Priority } from './types'
+import { RootState, Priority } from './types'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store<State>({
+export default new Vuex.Store<RootState>({
   state: {
     tasks: {
       '88aea980-31ae-11ea-a56c-15a7ed720afe': {

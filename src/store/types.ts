@@ -20,6 +20,6 @@ export interface Task {
   comments: Comment[]
 }
 
-export interface State {
+export interface RootState {
   tasks: { [key: string]: Task }
 }
