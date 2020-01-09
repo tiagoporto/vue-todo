@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-todo/404.html"
   },
   {
-    "revision": "589425bbf694c650a30f",
+    "revision": "4d49219adfb90974c168",
     "url": "/vue-todo/css/app.a3d468c0.css"
   },
   {
@@ -16,12 +16,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-todo/css/create.74d79018.css"
   },
   {
-    "revision": "60f1d1507d3c3a66b0dbe40f6328fc7c",
+    "revision": "91cc35f623cc723b4f7381ecd3739890",
     "url": "/vue-todo/index.html"
   },
   {
-    "revision": "589425bbf694c650a30f",
-    "url": "/vue-todo/js/app.7f7c43ec.js"
+    "revision": "4d49219adfb90974c168",
+    "url": "/vue-todo/js/app.7e3564bd.js"
   },
   {
     "revision": "354b067fba5a012a2668",
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-todo/js/create.7b21f028.js"
   },
   {
-    "revision": "69bc703a1a4f11fe8e69",
-    "url": "/vue-todo/js/task.9d8bb7bf.js"
+    "revision": "99c844842600bb0ff2e0",
+    "url": "/vue-todo/js/task.003563bc.js"
   },
   {
     "revision": "7ae7ea815676d5f9826e0173c913161a",
