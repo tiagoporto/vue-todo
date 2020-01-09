@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ca60ab5eb577febde64eca2a3a6429b8",
+    "revision": "3642350883d5368f72a19a38b04fa30b",
     "url": "/vue-todo/404.html"
   },
   {
