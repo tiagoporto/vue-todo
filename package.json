@@ -8,11 +8,13 @@
     "test": "vue-cli-service test:unit",
     "cover": "vue-cli-service test:unit --coverage",
     "coveralls": "npm run cover && cat ./coverage/lcov.info | coveralls",
+    "test-mutation": "stryker run --reporters html",
+    "test-mutation-report": "stryker run --reporters dashboard",
     "lint": "vue-cli-service lint",
     "check-types": "tsc --noEmit",
     "check-formatting": "prettier --check '{src,public}/**/*.{js,ts,vue,json}'",
     "deploy": "npm run build && gh-pages -d dist",
-    "checks": "npm run check-formatting && npm run lint && npm run check-types && npm run coveralls"
+    "checks": "npm run check-formatting && npm run lint && npm run check-types && npm run coveralls && npm run test-mutation-report"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
@@ -31,6 +33,10 @@
     "weekstart": "^1.0.1"
   },
   "devDependencies": {
+    "@stryker-mutator/core": "^2.4.0",
+    "@stryker-mutator/html-reporter": "^2.4.0",
+    "@stryker-mutator/jest-runner": "^2.4.0",
+    "@stryker-mutator/typescript": "^2.4.0",
     "@types/jest": "^24.0.19",
     "@types/luxon": "^1.21.0",
     "@types/uuid": "^3.4.6",
