@@ -57,7 +57,7 @@
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-vue": "^5.0.0",
     "gh-pages": "^2.2.0",
-    "lint-staged": "^9.5.0",
+    "husky": "^4.0.4",
     "prettier": "^1.19.1",
     "style-resources-loader": "^1.3.3",
     "stylus": "^0.54.7",
@@ -65,13 +65,9 @@
     "typescript": "~3.5.3",
     "vue-template-compiler": "^2.6.10"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,vue,ts}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run check-formatting && npm run lint && npm run check-types"
+    }
   }
 }
