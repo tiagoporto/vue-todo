@@ -4,32 +4,39 @@
 
     <p>{{ task.description }}</p>
 
-    <p>Data: {{ formatDate(task.date) }}</p>
+    <p>
+      <strong>Data:</strong>
+      {{ formatDate(task.date) }}
+    </p>
 
-    <p>Priority: {{ task.priority }}</p>
+    <p>
+      <strong>Priority:</strong>
+      {{ task.priority }}
+    </p>
     <hr />
 
-    <p>Comments</p>
-    <ul>
-      <li v-for="(comment, index) in task.comments" :key="index">
-        {{ comment.author }}
-        {{ formatDate(comment.date) }}
+    <p>
+      <strong>Comments:</strong>
+    </p>
+
+    <ul class="comment-list">
+      <li v-for="(comment, index) in task.comments" :key="index" class="comment-list__item">
+        <p>
+          <strong>{{ comment.author }}&nbsp;</strong>
+          <span class="date">{{ formatDate(comment.date) }}</span>
+        </p>
         {{ comment.message }}
       </li>
 
-      <li>
+      <li class="comment-list__actions">
         <form @submit="handleSave">
-          <input
-            v-model="newComment['author']"
-            type="text"
-            placeholder="Author"
-            required="required"
-          />
-          <input
+          <input v-model="newComment['author']" type="text" placeholder="Author" required />
+          <textarea
             v-model="newComment['message']"
-            type="textarea"
             placeholder="Write comment"
-            required="required"
+            required
+            cols="20"
+            rows="5"
           />
           <Button type="submit">add comment</Button>
         </form>
@@ -57,7 +64,10 @@ export default Vue.extend({
   },
   data() {
     return {
-      newComment: {}
+      newComment: {
+        author: null,
+        message: null
+      }
     }
   },
   computed: {
@@ -72,10 +82,17 @@ export default Vue.extend({
     formatDate,
     handleSave(e: Event) {
       e.preventDefault()
-      this.addNewComment({ id: this.taskId, comment: this.newComment })
-      this.$forceUpdate()
+      if (this.newComment.author && this.newComment.message) {
+        this.addNewComment({ id: this.taskId, comment: this.newComment })
+        this.$forceUpdate()
+      } else {
+        alert('Please fill author and comment fields.')
+      }
     },
     ...mapMutations(['addNewComment'])
   }
 })
 </script>
+
+<style lang="stylus" scoped src="./Task.styl"></style>
+

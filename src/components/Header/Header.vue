@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div v-if="$route.name !== 'home'">
-      <router-link to="/">back</router-link>
+      <router-link to="/" class="back-button">&lt; back</router-link>
     </div>
     <h1>
       <img src="../../../assets/pawatask-logo.svg" alt="pawatask logo" width="160" />

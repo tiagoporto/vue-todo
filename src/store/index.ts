@@ -11,21 +11,21 @@ export default new Vuex.Store<RootState>({
       '88aea980-31ae-11ea-a56c-15a7ed720afe': {
         id: '88aea980-31ae-11ea-a56c-15a7ed720afe',
         done: true,
-        title: 'Task Title',
-        description:
-          'Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum  ',
+        title: 'Remember to smile',
+        description: `Always remember to smile and look up at what you got in life.
+          Marilyn Monroe.`,
         priority: Priority.High,
         date: '2020-01-05T23:25:07.551Z',
         comments: [
           {
             author: 'Tiago Porto',
             date: '2020-01-05T23:25:07.551Z',
-            message: 'First'
+            message: 'Always!!!!!!!!!!!!!!!!'
           },
           {
-            author: 'Tiago Porto2',
+            author: 'Tiago Porto',
             date: '2020-01-05T23:25:07.551Z',
-            message: 'Second'
+            message: 'Be Happy!'
           }
         ]
       },
