@@ -4,8 +4,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-todo/404.html"
   },
   {
-    "revision": "405c4bfcf8b3d945d701",
-    "url": "/vue-todo/css/app.b26c4607.css"
+    "revision": "74870397eda486b4ba75",
+    "url": "/vue-todo/css/app.e7c4bfda.css"
   },
   {
     "revision": "354b067fba5a012a2668",
@@ -16,16 +16,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-todo/css/create.74d79018.css"
   },
   {
+    "revision": "8a126de478360816a3bd",
+    "url": "/vue-todo/css/task.fce24217.css"
+  },
+  {
     "revision": "e7a9f83907c14679a34c5134083f3f45",
     "url": "/vue-todo/img/pawatask-logo.e7a9f839.svg"
   },
   {
-    "revision": "b64a8c9b18e9de22d5e2f8fe26e7a854",
+    "revision": "da328143e1fba6672c8b0ba8aca954e3",
     "url": "/vue-todo/index.html"
   },
   {
-    "revision": "405c4bfcf8b3d945d701",
-    "url": "/vue-todo/js/app.96715ed9.js"
+    "revision": "74870397eda486b4ba75",
+    "url": "/vue-todo/js/app.9293a4bc.js"
   },
   {
     "revision": "354b067fba5a012a2668",
@@ -36,11 +40,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-todo/js/create.ebc76b12.js"
   },
   {
-    "revision": "4bc21d16a98db0e242b7",
-    "url": "/vue-todo/js/task.2d60a2f5.js"
+    "revision": "8a126de478360816a3bd",
+    "url": "/vue-todo/js/task.5af8a8e8.js"
   },
   {
-    "revision": "46942c87dab17edb637a1e1635a475f1",
+    "revision": "df4a8ec152197550602e155776bfee0e",
     "url": "/vue-todo/manifest.json"
   },
   {
