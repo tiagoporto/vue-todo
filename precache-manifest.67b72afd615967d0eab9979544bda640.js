@@ -4,16 +4,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-todo/404.html"
   },
   {
-    "revision": "72c72bf892a83815c891",
-    "url": "/vue-todo/css/app.722db4e0.css"
+    "revision": "21021216d1106a74d1e5",
+    "url": "/vue-todo/css/app.2f5214e7.css"
   },
   {
     "revision": "354b067fba5a012a2668",
     "url": "/vue-todo/css/chunk-vendors.81e18a23.css"
   },
   {
-    "revision": "5af15c65a5cdbca85602",
-    "url": "/vue-todo/css/create.74d79018.css"
+    "revision": "6ee13d2604b23fa68dbe",
+    "url": "/vue-todo/css/create.72941c01.css"
   },
   {
     "revision": "6d2609e7d3f04f4ed351",
@@ -24,20 +24,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-todo/img/pawatask-logo.e7a9f839.svg"
   },
   {
-    "revision": "e330000d63770dedaa11dea85504d686",
+    "revision": "e83ed72458c6a800a0fa01e4387545f2",
     "url": "/vue-todo/index.html"
   },
   {
-    "revision": "72c72bf892a83815c891",
-    "url": "/vue-todo/js/app.22c5826d.js"
+    "revision": "21021216d1106a74d1e5",
+    "url": "/vue-todo/js/app.b30bab34.js"
   },
   {
     "revision": "354b067fba5a012a2668",
     "url": "/vue-todo/js/chunk-vendors.b2197ec5.js"
   },
   {
-    "revision": "5af15c65a5cdbca85602",
-    "url": "/vue-todo/js/create.f67a73b7.js"
+    "revision": "6ee13d2604b23fa68dbe",
+    "url": "/vue-todo/js/create.0fa71440.js"
   },
   {
     "revision": "6d2609e7d3f04f4ed351",
