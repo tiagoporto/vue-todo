@@ -34,7 +34,7 @@
 - [Typescript](https://www.typescriptlang.org)
 - [Stylus](http://stylus-lang.com)
 - [Jest](https://jestjs.io)
-
+- [Stryker Mutator](https://stryker-mutator.io)
 
 ## Pre-requisites
 
