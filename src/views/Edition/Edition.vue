@@ -3,7 +3,7 @@
     <legend>New Task</legend>
 
     <p>
-      <label for="title">title</label>
+      <label for="title">Title</label>
       <input v-model="task.title" type="text" name="title" required autofocus />
     </p>
 
@@ -25,14 +25,16 @@
     <p>
       <label for="priority">Priority</label>
       <select v-model="task.priority" name="priority" required>
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
+        <option :value="priority.Low">Low</option>
+        <option :value="priority.Medium">Medium</option>
+        <option :value="priority.High">High</option>
       </select>
     </p>
 
-    <Button @click="$router.push({ name: 'home' })">cancel</Button>
-    <Button type="submit">save</Button>
+    <div class="actions-box">
+      <Button @click="$router.push({ name: 'home' })">cancel</Button>
+      <Button type="submit">save</Button>
+    </div>
   </form>
 </template>
 
@@ -42,6 +44,7 @@ import { Datetime } from 'vue-datetime'
 import { Button } from '@/components/Button'
 import 'vue-datetime/dist/vue-datetime.min.css'
 import { mapGetters, mapMutations, mapState, mapActions } from 'vuex'
+import { Priority } from '@/store/types'
 
 export default Vue.extend({
   name: 'Edition',
@@ -55,6 +58,11 @@ export default Vue.extend({
       default: undefined
     }
   },
+  data() {
+    return {
+      priority: Priority
+    }
+  },
   computed: {
     ...mapState({
       task(state) {
@@ -63,7 +71,7 @@ export default Vue.extend({
         }
 
         return {
-          priority: 'low',
+          priority: Priority.Low,
           date: new Date().toISOString()
         }
       }
@@ -73,14 +81,18 @@ export default Vue.extend({
   methods: {
     handleSave(e: Event) {
       e.preventDefault()
-      if (this.taskId) {
-        this.editTask({ id: this.taskId, ...this.task })
+      if (this.task.title && this.task.date) {
+        if (this.taskId) {
+          this.editTask({ id: this.taskId, ...this.task })
+        } else {
+          ;(async () => {
+            const taskId = await this.addTask(this.task)
+          })()
+        }
+        this.$router.push({ name: 'home' })
       } else {
-        ;(async () => {
-          const taskId = await this.addTask(this.task)
-        })()
+        alert('Fields title and date are required')
       }
-      this.$router.push({ name: 'home' })
     },
     ...mapMutations(['deleteTask', 'editTask']),
     ...mapActions(['addTask'])

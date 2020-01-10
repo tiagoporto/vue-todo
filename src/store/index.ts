@@ -13,7 +13,7 @@ export default new Vuex.Store<RootState>({
         done: true,
         title: 'Remember to smile',
         description: `Always remember to smile and look up at what you got in life.
-          Marilyn Monroe.`,
+Marilyn Monroe.`,
         priority: Priority.High,
         date: '2020-01-05T23:25:07.551Z',
         comments: [
