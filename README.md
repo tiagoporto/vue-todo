@@ -1,18 +1,20 @@
 # vue-todo ![Open Source Love](https://raw.githubusercontent.com/ellerbrock/open-source-badges/master/badges/open-source-v3/open-source.svg?sanitize=true)
 
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-yellow.svg?style=flat-square)](http://standardjs.com)
+[![License](https://img.shields.io/github/license/tiagoporto/vue-todo.svg?style=flat-square)](https://github.com/tiagoporto/vue-todo/blob/master/LICENSE)
+
+
+> To-do SPA in [Vue.js](https://vuejs.org).
+
+
+## Status
+
 [![Build Status](https://img.shields.io/travis/com/tiagoporto/vue-todo/master.svg?label=tests&logo=travis&style=flat-square)](https://travis-ci.com/tiagoporto/vue-todo)
 [![Coverage Status](https://img.shields.io/coveralls/tiagoporto/vue-todo.svg?style=flat-square)](https://coveralls.io/github/tiagoporto/vue-todo)
 [![Mutation testing cover](https://badge.stryker-mutator.io/github.com/tiagoporto/vue-todo/master)](https://stryker-mutator.github.io)
 
 [![dependencies Status](https://img.shields.io/david/tiagoporto/vue-todo.svg?style=flat-square)](https://david-dm.org/tiagoporto/vue-todo)
 [![devDependencies Status](https://img.shields.io/david/dev/tiagoporto/vue-todo.svg?style=flat-square)](https://david-dm.org/tiagoporto/vue-todo?type=dev)
-
-
-> To-do SPA in [Vue.js](https://vuejs.org).
-
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-yellow.svg?style=flat-square)](http://standardjs.com)
-[![License](https://img.shields.io/github/license/tiagoporto/vue-todo.svg?style=flat-square)](https://github.com/tiagoporto/vue-todo/blob/master/LICENSE)
-
 
 ## Board
  📋 [Project board](https://github.com/tiagoporto/vue-todo/projects/2) 
