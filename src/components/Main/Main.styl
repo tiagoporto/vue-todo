@@ -1,4 +1,7 @@
 main
-  max-width 800px
+  padding $gutter*2
   position relative
   margin: auto
+
+  @media only screen and (min-width: $breakpoints.sm)
+    max-width $breakpoints.sm

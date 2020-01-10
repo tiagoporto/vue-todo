@@ -2,32 +2,33 @@
   <div class="edition">
     <ul v-if="Object.keys(tasks).length" class="tasklist">
       <li v-for="(task, index) in tasks" :key="index" class="tasklist__item">
-        <span>
-          <input
-            type="checkbox"
-            :checked="task.done"
-            @click="markAsDone(task.id)"
-          />
-          {{ task.title }}
+        <span class="tasklist__title">
+          <input type="checkbox" :checked="task.done" @click="markAsDone(task.id)" />
+          <router-link :to="{name: 'task', params: {taskId: task.id}}">{{ task.title }}</router-link>
         </span>
 
-        <span>
-          <font-awesome-icon :icon="calendarIcon" />
-          {{ formatDate(task.date) }}
-
+        <span class="actions-box">
+          <span class="date-box">
+            <font-awesome-icon :icon="calendarIcon" />
+            {{ formatDate(task.date) }}
+          </span>
           <Button
+            title="comments"
+            icon
             @click="$router.push({ name: 'task', params: { taskId: task.id } })"
           >
             <font-awesome-icon :icon="commentIcon" />
           </Button>
 
           <Button
+            title="edit"
+            icon
             @click="$router.push({ name: 'edit', params: { taskId: task.id } })"
           >
             <font-awesome-icon :icon="editIcon" />
           </Button>
 
-          <Button @click="handleDelete(task.id)">
+          <Button title="delete" icon @click="handleDelete(task.id)">
             <font-awesome-icon :icon="deleteIcon" />
           </Button>
         </span>

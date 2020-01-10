@@ -5,7 +5,35 @@
   padding 0
 
   &__item
-    padding 12px 0
-    list-style: none
-    display: flex
-    justify-content: space-between
+    padding $gutter*2 0
+    list-style none
+    border-bottom 1px solid $colors.grey
+
+    @media only screen and (min-width: $breakpoints.xm)
+      display flex
+      align-items center
+      justify-content space-between
+
+  &__title
+    input
+      margin-right $gutter
+
+    @media only screen and (max-width: $breakpoints.xm)
+      padding $gutter 0
+      display block
+
+
+.actions-box
+  @media only screen and (min-width: $breakpoints.xm)
+    display grid
+    grid-template-columns: 200px 1fr 1fr 1fr
+    grid-column-gap $gutter
+
+.date-box
+  display block
+  padding $gutter 0 $gutter*2
+
+  @media only screen and (min-width: $breakpoints.xm)
+    padding 0
+    justify-self: end;
+    align-self: center;

@@ -3,7 +3,9 @@
     <div v-if="$route.name !== 'home'">
       <router-link to="/">back</router-link>
     </div>
-    <h1>pawaTask</h1>
+    <h1>
+      <img src="../../../assets/pawatask-logo.svg" alt="pawatask logo" width="160" />
+    </h1>
   </header>
 </template>
 
