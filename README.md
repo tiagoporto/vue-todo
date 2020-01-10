@@ -4,13 +4,15 @@
 [![Coverage Status](https://img.shields.io/coveralls/tiagoporto/vue-todo.svg?style=flat-square)](https://coveralls.io/github/tiagoporto/vue-todo)
 [![Mutation testing cover](https://badge.stryker-mutator.io/github.com/tiagoporto/vue-todo/master)](https://stryker-mutator.github.io)
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-yellow.svg?style=flat-square)](http://standardjs.com)
-[![dependencies Status](https://img.shields.io/david/dev/tiagoporto/vue-todo.svg?style=flat-square)](https://david-dm.org/tiagoporto/vue-todo)
+[![dependencies Status](https://img.shields.io/david/tiagoporto/vue-todo.svg?style=flat-square)](https://david-dm.org/tiagoporto/vue-todo)
 [![devDependencies Status](https://img.shields.io/david/dev/tiagoporto/vue-todo.svg?style=flat-square)](https://david-dm.org/tiagoporto/vue-todo?type=dev)
-[![License](https://img.shields.io/github/license/tiagoporto/vue-todo.svg?style=flat-square)](https://github.com/tiagoporto/vue-todo/blob/master/LICENSE)
 
 
 > To-do SPA in [Vue.js](https://vuejs.org).
+
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-yellow.svg?style=flat-square)](http://standardjs.com)
+[![License](https://img.shields.io/github/license/tiagoporto/vue-todo.svg?style=flat-square)](https://github.com/tiagoporto/vue-todo/blob/master/LICENSE)
+
 
 ## Board
  📋 [Project board](https://github.com/tiagoporto/vue-todo/projects/2) 
