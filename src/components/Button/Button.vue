@@ -1,5 +1,5 @@
 <template>
-  <button v-bind="$attrs" v-on="listeners" v-bind:class="{icon: icon}">
+  <button v-bind="$attrs" :class="{ icon: icon }" v-on="listeners">
     <slot></slot>
   </button>
 </template>
@@ -9,7 +9,7 @@ export default {
   name: 'Button',
   props: {
     icon: {
-      type: Boolean,
+      type: Boolean
     }
   },
   computed: {

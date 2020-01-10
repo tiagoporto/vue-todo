@@ -20,7 +20,11 @@
     </p>
 
     <ul class="comment-list">
-      <li v-for="(comment, index) in task.comments" :key="index" class="comment-list__item">
+      <li
+        v-for="(comment, index) in task.comments"
+        :key="index"
+        class="comment-list__item"
+      >
         <p>
           <strong>{{ comment.author }}&nbsp;</strong>
           <span class="date">{{ formatDate(comment.date) }}</span>
@@ -30,7 +34,12 @@
 
       <li class="comment-list__actions">
         <form @submit="handleSave">
-          <input v-model="newComment['author']" type="text" placeholder="Author" required />
+          <input
+            v-model="newComment['author']"
+            type="text"
+            placeholder="Author"
+            required
+          />
           <textarea
             v-model="newComment['message']"
             placeholder="Write comment"
@@ -95,4 +104,3 @@ export default Vue.extend({
 </script>
 
 <style lang="stylus" scoped src="./Task.styl"></style>
-

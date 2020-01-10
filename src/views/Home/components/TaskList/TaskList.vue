@@ -3,8 +3,14 @@
     <ul v-if="Object.keys(tasks).length" class="tasklist">
       <li v-for="(task, index) in tasks" :key="index" class="tasklist__item">
         <span class="tasklist__title">
-          <input type="checkbox" :checked="task.done" @click="markAsDone(task.id)" />
-          <router-link :to="{name: 'task', params: {taskId: task.id}}">{{ task.title }}</router-link>
+          <input
+            type="checkbox"
+            :checked="task.done"
+            @click="markAsDone(task.id)"
+          />
+          <router-link :to="{ name: 'task', params: { taskId: task.id } }">{{
+            task.title
+          }}</router-link>
         </span>
 
         <span class="actions-box">

@@ -4,7 +4,11 @@
       <router-link to="/" class="back-button">&lt; back</router-link>
     </div>
     <h1>
-      <img src="../../../assets/pawatask-logo.svg" alt="pawatask logo" width="160" />
+      <img
+        src="../../../assets/pawatask-logo.svg"
+        alt="pawatask logo"
+        width="160"
+      />
     </h1>
   </header>
 </template>
