@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-todo/404.html"
   },
   {
-    "revision": "162ea3c1bc10675e36ea",
+    "revision": "df9767bb0b4f8e444868",
     "url": "/vue-todo/css/app.2f5214e7.css"
   },
   {
@@ -24,12 +24,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-todo/img/pawatask-logo.e7a9f839.svg"
   },
   {
-    "revision": "a3dad18e9e86c2eff6071da8c9ec7457",
+    "revision": "73dd63f5ab9cbe3d869dde1cc0672fa0",
     "url": "/vue-todo/index.html"
   },
   {
-    "revision": "162ea3c1bc10675e36ea",
-    "url": "/vue-todo/js/app.1af820e4.js"
+    "revision": "df9767bb0b4f8e444868",
+    "url": "/vue-todo/js/app.9e310657.js"
   },
   {
     "revision": "354b067fba5a012a2668",
