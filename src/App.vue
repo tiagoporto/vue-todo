@@ -16,15 +16,7 @@ Settings.defaultLocale = 'us'
 
 export default Vue.extend({
   name: 'App',
-  components: { Header, Main },
-  beforeCreate() {
-    let path = localStorage.getItem('path')
-
-    if (path) {
-      localStorage.removeItem('path')
-      this.$router.push(path)
-    }
-  }
+  components: { Header, Main }
 })
 </script>
 
