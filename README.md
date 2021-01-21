@@ -9,7 +9,7 @@
 
 ## Status
 
-[![Build Status](https://img.shields.io/travis/com/tiagoporto/vue-todo/master.svg?label=tests&logo=travis&style=flat-square)](https://travis-ci.com/tiagoporto/vue-todo)
+[![Build Status](https://img.shields.io/travis/com/tiagoporto/vue-todo/main.svg?label=tests&logo=travis&style=flat-square)](https://travis-ci.com/tiagoporto/vue-todo)
 [![Coverage Status](https://img.shields.io/coveralls/tiagoporto/vue-todo.svg?style=flat-square)](https://coveralls.io/github/tiagoporto/vue-todo)
 [![Mutation testing cover](https://badge.stryker-mutator.io/github.com/tiagoporto/vue-todo/master)](https://stryker-mutator.github.io)
 
