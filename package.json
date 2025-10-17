@@ -1,20 +1,18 @@
 {
   "name": "vue-todo",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test": "vue-cli-service test:unit",
-    "cover": "vue-cli-service test:unit --coverage",
-    "coveralls": "npm run cover && cat ./coverage/lcov.info | coveralls",
-    "test-mutation": "stryker run --reporters html",
-    "test-mutation-report": "stryker run --reporters dashboard",
+    "checks": "npm run format:check && npm run lint && npm run typecheck",
     "lint": "vue-cli-service lint",
-    "check-types": "tsc --noEmit",
-    "check-formatting": "prettier --check '{src,public}/**/*.{js,ts,vue,json}'",
-    "deploy": "npm run build && gh-pages -d dist",
-    "checks": "npm run check-formatting && npm run lint && npm run check-types && npm run coveralls && npm run test-mutation-report"
+    "typecheck": "tsc --noEmit",
+    "format:check": "prettier --check '{src,public}/**/*.{js,ts,vue,json}'",
+    "format": "npm run format:check -- --write",
+    "test": "vue-cli-service test:unit",
+    "coverage": "vue-cli-service test:unit --coverage",
+    "test:mutation": "stryker run --reporters html",
+    "test:mutation-report": "stryker run --reporters dashboard"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
@@ -52,11 +50,9 @@
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/eslint-config-typescript": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
-    "coveralls": "^3.0.9",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-vue": "^5.0.0",
-    "gh-pages": "^2.2.0",
     "husky": "^4.0.4",
     "prettier": "^1.19.1",
     "style-resources-loader": "^1.3.3",
@@ -67,7 +63,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run check-formatting && npm run lint && npm run check-types"
+      "pre-push": "npm run format:check && npm run lint && npm run typecheck"
     }
   }
 }

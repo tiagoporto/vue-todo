@@ -1,0 +1,49 @@
+name: Checks
+
+on:
+  workflow_call:
+  push:
+    branches: [main]
+  pull_request:
+    types: [synchronize, opened, reopened, ready_for_review, converted_to_draft]
+
+concurrency:
+  group: checks_${{ github.workflow }}_${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup node
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Format Check
+        run: npm run format:check
+
+      - name: Typecheck
+        if: success() || failure()
+        run: npm run typecheck
+
+    #   - name: Lint Styles
+    #     if: success() || failure()
+    #     run: npm run lint:styles
+
+      - name: Lint
+        if: success() || failure()
+        run: npm run lint
+
+

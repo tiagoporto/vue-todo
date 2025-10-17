@@ -1,24 +1,15 @@
 # vue-todo ![Open Source Love](https://raw.githubusercontent.com/ellerbrock/open-source-badges/master/badges/open-source-v3/open-source.svg?sanitize=true)
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-yellow.svg?style=flat-square)](http://standardjs.com)
 [![License](https://img.shields.io/github/license/tiagoporto/vue-todo.svg?style=flat-square)](https://github.com/tiagoporto/vue-todo/blob/main/LICENSE)
-
 
 > To-do SPA in [Vue.js](https://vuejs.org).
 
-
 ## Status
 
-[![Build Status](https://img.shields.io/travis/com/tiagoporto/vue-todo/main.svg?label=tests&logo=travis&style=flat-square)](https://travis-ci.com/tiagoporto/vue-todo)
-[![Coverage Status](https://img.shields.io/coveralls/tiagoporto/vue-todo.svg?style=flat-square)](https://coveralls.io/github/tiagoporto/vue-todo)
-[![Mutation testing cover](https://badge.stryker-mutator.io/github.com/tiagoporto/vue-todo/main)](https://stryker-mutator.github.io)
-
-[![dependencies Status](https://img.shields.io/david/tiagoporto/vue-todo.svg?style=flat-square)](https://david-dm.org/tiagoporto/vue-todo)
-[![devDependencies Status](https://img.shields.io/david/dev/tiagoporto/vue-todo.svg?style=flat-square)](https://david-dm.org/tiagoporto/vue-todo?type=dev)
-
-## Board
- 📋 [Project board](https://github.com/tiagoporto/vue-todo/projects/2) 
- 
+[![Checks Workflow Status](https://img.shields.io/github/actions/workflow/status/tiagoporto/vue-todo/checks.yml?label=checks&style=flat-square&branch=main)](https://github.com/tiagoporto/vue-todo/actions/workflows/checks.yml?query=branch%3Amain)
+[![Tests Workflow Status](https://img.shields.io/github/actions/workflow/status/tiagoporto/vue-todo/unit-tests.yml?label=unit%20tests&style=flat-square&branch=main)](https://github.com/tiagoporto/vue-todo/actions/workflows/unit-tests.yml?query=branch%3Amain)
+[![Coverage](https://img.shields.io/codecov/c/github/tiagoporto/vue-todo/main?style=flat-square)](https://app.codecov.io/gh/tiagoporto/vue-todo/tree/main)
+[![Mutation Score](https://img.shields.io/endpoint?style=flat-square&url=https://badge-api.stryker-mutator.io/github.com/tiagoporto/vue-todo/main)](https://dashboard.stryker-mutator.io/reports/github.com/tiagoporto/vue-todo/main)
 
 ## Technologies
 
@@ -41,7 +32,6 @@
 - [Git]()
 - [Node.js](https://nodejs.org)
 
-
 ## Development Guidelines
 
 ### Editor
@@ -49,30 +39,34 @@
 The recommended editor for this project is [VS Code](https://code.visualstudio.com/).
 
 ### Project setup
+
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 npm start
 ```
 
 ### Compiles and minifies for production
+
 ```
 npm run build
 ```
 
 ### Run your unit tests
+
 ```
 npm run test:unit
 ```
 
 ### Lints and fixes files
+
 ```
 npm run lint
 ```
-
 
 ## Hooks
 
@@ -85,7 +79,6 @@ Before run the command `git push`, will execute application checks
 - Prettier
 - Eslint
 - Typescript
-
 
 ## License
 
